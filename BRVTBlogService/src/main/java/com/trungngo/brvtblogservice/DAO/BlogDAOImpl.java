@@ -23,13 +23,13 @@ public class BlogDAOImpl implements BlogDAOInterface{
 
     @Override
     public List<Blog> findAll() {
-        Query query = createQuery("select * from Blog");
+        Query query = createQuery("from Blog");
         return query.getResultList();
     }
 
     @Override
     public Blog save(Blog blog) {
-        return  entityManager.merge(blog);
+        return entityManager.merge(blog);
     }
 
     @Override

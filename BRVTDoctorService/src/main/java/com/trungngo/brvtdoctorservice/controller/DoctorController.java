@@ -12,6 +12,7 @@ import java.security.spec.InvalidKeySpecException;
 
 @RestController
 @RequestMapping(path = "/doctor")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class DoctorController {
     private final DoctorServiceInterface doctorService;
 

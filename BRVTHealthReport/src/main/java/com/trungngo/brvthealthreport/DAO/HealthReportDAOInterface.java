@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface HealthReportDAOInterface {
     List<HealthReport> findAll();
-    List<HealthReport> findAllByPatientId();
+    List<HealthReport> findAllByPatientId(Integer id);
     HealthReport save(HealthReport healthReport);
     HealthReport update(HealthReport healthReport);
     HealthReport delete(Integer id);

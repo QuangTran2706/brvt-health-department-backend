@@ -35,7 +35,7 @@ public class HealthReportServiceImpl implements HealthReportServiceInterface{
     @Override
     @Transactional
     public List<HealthReport> findAllHealthReportByPatientId(int patientId) {
-        return null;
+        return healthReportDAO.findAllByPatientId(patientId);
     }
 
     @Override

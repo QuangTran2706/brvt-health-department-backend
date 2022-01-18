@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/health-report")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class HealthReportController {
 
     private final HealthReportServiceInterface healthReportService;
@@ -63,14 +64,12 @@ public class HealthReportController {
         return healthReportService.deleteHealthReportById(id);
     }
 
-//    @GetMapping(path="/findAll")
-//    public ResponseEntity findAllHealthReports() {
-//        return new ResponseEntity<>(
-//                healthReportService.find(),
-//                HttpStatus.OK
-//        );
-//    }
-
-
+    @GetMapping(path="/findAllByPatientId/{id}")
+    public ResponseEntity findAllHealthReports(@PathVariable Integer id) {
+        return new ResponseEntity<>(
+                healthReportService.findAllHealthReportByPatientId(id),
+                HttpStatus.OK
+        );
+    }
 
 }
